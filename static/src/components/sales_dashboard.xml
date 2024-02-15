@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="smart_dashboard.SalesTemplate" owl="1">
+       <div class="my-5 mx-5 vh-100 overflow-auto bg-muted">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card rounded shadow-sm p-4" >
+
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div class="h3 d-flex align-items-center tt-text-primary"><span>Sales Summary</span></div>
+                            <div class="d-block align-items-center">
+                                <select class="form-select form-select-sm tt-text-primary" t-model="state.period" t-on-change="onChangePeriod">
+                                    <option value='0'>Select Period...</option>
+                                    <option value="7">Last 7 Days</option>
+                                    <option value="30">Last 30 Days</option>
+                                    <option value="90">Last 90 Days</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!--KPI Cards -->
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+                            <KpiCards name="'Quotations'" value="state.quotations.value" percentage="state.quotations.percentage"/>
+                            <KpiCards name="'Orders'" value="'10'" percentage="'-5'"/>
+                            <KpiCards name="'Revenue'" value="'10'" percentage="'-5'"/>
+                            <KpiCards name="'Average Order'" value="'10'" percentage="'-5'"/>
+                        </div>
+
+                    </div>
+                    
+                </div>
+
+                <div class="col-md-4">
+                    <div>Hello</div>
+                </div>
+            </div>
+       </div>
+    </t>
+</templates>
